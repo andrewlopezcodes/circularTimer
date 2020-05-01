@@ -16,7 +16,8 @@ class Timer {
     clearInterval(this.currentTime);
   };
   tick = () => {
-    console.log('tick')
+    let remainingTime = parseFloat(this.durationInput.value);
+    this.durationInput.value = remainingTime - 1;
   }
   durationInput = () => {}
 
