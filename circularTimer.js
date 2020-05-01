@@ -16,11 +16,15 @@ class Timer {
     clearInterval(this.currentTime);
   };
   tick = () => {
-    let remainingTime = parseFloat(this.durationInput.value);
-    this.durationInput.value = remainingTime - 1;
+    this.remainingTimeInDurationInput = this.remainingTimeInDurationInput - 1;
   }
-  durationInput = () => {}
 
+  get remainingTimeInDurationInput() {
+    return parseFloat(this.durationInput.value);
+  }
+  set remainingTimeInDurationInput(currentValueInDurationInput) {
+    this.durationInput.value = currentValueInDurationInput;
+  }
 
 }
 
