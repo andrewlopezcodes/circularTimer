@@ -9,12 +9,21 @@
 </head>
 
 <body>
-  <svg height="400" width="400">
-    <circle r="190" cx="200" cy="200" fill=transparent stroke=blue stroke-width="15" transform="rotate(-90 200 200)" />
-  </svg>
-  <input type="text" id="duration" value='0'>
-  <img src="start button iconsize.png" alt="" id="start">
-  <img src="pause button iconsize.png" alt="" id="pause">
+
+  <div class="timer">
+    <div class="controls">
+      <input type="text" id="duration" value='0'>
+      <div>
+        <img src="start button iconsize.png" alt="" id="start">
+        <img src="pause button iconsize.png" alt="" id="pause">
+      </div>
+    </div>
+    <svg height="400" width="400">
+      <circle r="190" cx="200" cy="200" fill=transparent stroke=blue stroke-width="15"
+        transform="rotate(-90 200 200)" />
+    </svg>
+  </div>
+
 
   <script src="justTimer.js"></script>
   <script src="timerCalled.js"></script>
