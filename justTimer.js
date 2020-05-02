@@ -9,9 +9,11 @@ class Timer {
       this.onTimerAtZero = signals.onTimerAtZero;
     }
 
+
     this.startButton.addEventListener('click', this.start);
     this.pauseButton.addEventListener('click', this.pause);
   }
+
   start = () => {
     if (this.onStart) {
       this.onStart();
@@ -27,6 +29,11 @@ class Timer {
   };
 
   tick = () => {
+    if (this.remainingTimeInDurationInput === -1) {
+      this.remainingTimeInDurationInput = this.remainingTimeInDurationInput + 2;
+      this.pause();
+    }
+
     if (this.onTick) {
       this.onTick();
     }
@@ -38,6 +45,8 @@ class Timer {
       this.pause();
     }
     this.remainingTimeInDurationInput = this.remainingTimeInDurationInput - 1;
+
+
   }
 
   get remainingTimeInDurationInput() {
@@ -48,20 +57,3 @@ class Timer {
   }
 
 }
-
-
-const durationInput = document.querySelector('#duration');
-const startButton = document.querySelector('#start');
-const pauseButton = document.querySelector('#pause');
-
-const timer = new Timer(durationInput, startButton, pauseButton, {
-  onStart() {
-    console.log('Timer has started')
-  },
-  onTick() {
-    console.log('tick')
-  },
-  onTimerAtZero() {
-    console.log('timer is at 0')
-  }
-});
