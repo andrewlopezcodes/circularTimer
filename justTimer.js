@@ -16,10 +16,10 @@ class Timer {
 
   start = () => {
     if (this.onStart) {
-      this.onStart();
+      this.onStart(this.remainingTimeInDurationInput);
     }
     this.tick();
-    this.currentTime = setInterval(this.tick, 1000);
+    this.currentTime = setInterval(this.tick, 50);
     this.startButton.disabled = true;
 
   };
@@ -35,25 +35,23 @@ class Timer {
     }
 
     if (this.onTick) {
-      this.onTick();
+      this.onTick(this.remainingTimeInDurationInput);
     }
 
-    if (this.remainingTimeInDurationInput === 1 && this.onTimerAtZero) {
+    if (this.remainingTimeInDurationInput === 0.05 && this.onTimerAtZero) {
       this.pause();
       this.onTimerAtZero();
-    } else if (this.remainingTimeInDurationInput === 1) {
+    } else if (this.remainingTimeInDurationInput === .05) {
       this.pause();
     }
-    this.remainingTimeInDurationInput = this.remainingTimeInDurationInput - 1;
-
-
+    this.remainingTimeInDurationInput = this.remainingTimeInDurationInput - .05;
   }
 
   get remainingTimeInDurationInput() {
     return parseFloat(this.durationInput.value);
   }
   set remainingTimeInDurationInput(currentValueInDurationInput) {
-    this.durationInput.value = currentValueInDurationInput;
+    this.durationInput.value = currentValueInDurationInput.toFixed(2);
   }
 
 }
