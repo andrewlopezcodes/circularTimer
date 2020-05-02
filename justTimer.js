@@ -29,8 +29,8 @@ class Timer {
   };
 
   tick = () => {
-    if (this.remainingTimeInDurationInput === -1) {
-      this.remainingTimeInDurationInput = this.remainingTimeInDurationInput + 2;
+    if (this.remainingTimeInDurationInput === -0.05) {
+      this.remainingTimeInDurationInput = this.remainingTimeInDurationInput + .1;
       this.pause();
     }
 
