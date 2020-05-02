@@ -53,5 +53,6 @@ class Timer {
   set remainingTimeInDurationInput(currentValueInDurationInput) {
     this.durationInput.value = currentValueInDurationInput.toFixed(2);
   }
-
 }
+
+// written by @andrewlopezcodes on Github and Instagram

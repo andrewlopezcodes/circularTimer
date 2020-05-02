@@ -25,5 +25,4 @@ const timer = new Timer(durationInput, startButton, pauseButton, {
   }
 });
 
-// stroke-dasharray="560"
-//       stroke-dashoffset="-100" 
+// written by @andrewlopezcodes on Github and Instagram
