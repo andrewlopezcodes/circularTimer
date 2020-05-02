@@ -10,12 +10,18 @@ class Timer {
   start = () => {
     this.tick();
     this.currentTime = setInterval(this.tick, 1000);
+    this.startButton.disabled = true;
 
   };
   pause = () => {
     clearInterval(this.currentTime);
+    this.startButton.disabled = false;
   };
+
   tick = () => {
+    if (this.remainingTimeInDurationInput === 1) {
+      this.pause();
+    }
     this.remainingTimeInDurationInput = this.remainingTimeInDurationInput - 1;
   }
 
